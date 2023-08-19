@@ -11,6 +11,9 @@ class AcademyAdapta : RecyclerView.Adapter<AcademyAdapta.MyviewHolder>() {
         fun bind(recyclerModel: AcademyModel, position: Int) {
             binding.nameText.text = recyclerModel.name
             binding.mainImg.setImageResource(recyclerModel.img)
+            binding.item.setOnClickListener{
+
+            }
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyviewHolder {
