@@ -1,5 +1,6 @@
 package com.example.blueinformation.adapta
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,7 @@ class AcademyAdapta : RecyclerView.Adapter<AcademyAdapta.MyviewHolder>() {
             binding.nameText.text = recyclerModel.name
             binding.mainImg.setImageResource(recyclerModel.img)
             binding.item.setOnClickListener{
-
+                Log.d("test", position.toString())
             }
         }
     }
