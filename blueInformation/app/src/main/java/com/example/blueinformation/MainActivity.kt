@@ -27,8 +27,9 @@ class MainActivity : AppCompatActivity() {
         adapter = AcademyAdapta()
         adapter.datalist=mDatas
         adapter.callback = { position ->
-
-
+            val transaction = supportFragmentManager.beginTransaction()
+                .add(R.id.studentFragment, studentRecycleFragment(), "studentRecycle")
+            transaction.commit()
         }
         binding.recyclerView.adapter = adapter
 
