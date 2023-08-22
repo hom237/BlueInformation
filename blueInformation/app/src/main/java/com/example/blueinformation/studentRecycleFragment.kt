@@ -1,6 +1,7 @@
 package com.example.blueinformation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +12,9 @@ import com.example.blueinformation.adapta.stuadapta.StuedentAdapta
 import com.example.blueinformation.adapta.stuadapta.StuedentModel
 import com.example.blueinformation.databinding.FragmentStudentRecycleBinding
 import com.example.blueinformation.databinding.StudentitemBinding
+import java.lang.reflect.Constructor
 
-class studentRecycleFragment : Fragment() {
+class studentRecycleFragment(var schoolName:Int) : Fragment()  {
     private lateinit var adapter: StuedentAdapta
     lateinit var binding: FragmentStudentRecycleBinding
     val mDatas = mutableListOf<StuedentModel>()
@@ -32,10 +34,16 @@ class studentRecycleFragment : Fragment() {
         binding.stuRecyclerView.adapter = adapter
 
     }
+    val studentName = mutableListOf(mutableListOf("텐도 아리스", "하나오카 유즈"), mutableListOf("리쿠 아루"), mutableListOf("호시노"), mutableListOf("히후미"), mutableListOf("이즈나"), mutableListOf("슌"), mutableListOf("체리노"), mutableListOf("키리노"), mutableListOf("미야코"), mutableListOf("사오리")
+    )
+    val studentComent = mutableListOf("test")
 
-    val student = mutableListOf("test")
     private fun initstuedentList(){
-            mDatas.add(StuedentModel("kei", R.drawable.stu_kei, "나의 소중한......... 아리스여"))
+        for (i in 0..studentName[schoolName].size-1){
+            Log.d("test", studentName[schoolName][i])
+            mDatas.add(StuedentModel(studentName[schoolName][i], R.drawable.stu_kei, "나의 소중한......... 아리스여"))
+        }
+
 
 
     }
